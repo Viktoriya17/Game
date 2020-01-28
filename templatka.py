@@ -142,15 +142,15 @@ def get_random_circle_pos():
 
 # figure spawn functions
 def spawnRectAtPos(pos, color):
-    pygame.draw.rect(canvas, color, Rect(pos, rect_size))
+    pg.draw.rect(canvas, color, Rect(pos, rect_size))
 
 def spawnCircleAtPos(center_pos, color):
-    pygame.draw.circle(canvas, color, center_pos, circle_radius)
+    pg.draw.circle(canvas, color, center_pos, circle_radius)
 
 def clear_canvas():
     rect = Rect(margin, margin, canvas_width - 2 * margin, canvas_height - 2 * margin)
-    pygame.draw.rect(canvas, background_color, rect)
-    pygame.display.update()
+    pg.draw.rect(canvas, background_color, rect)
+    pg.display.update()
 
 # program start
 
@@ -159,13 +159,13 @@ print("Instruction will be there")
 input("Press enter to start")
 
 # pygame initialization
-pygame.init()
+pg.init()
 canvas = pygame.display.set_mode(canvas_size)
 
 # text setup
 
 
-pygame.font.init()
+pg.font.init()
 font = pygame.font.SysFont('Comic Sans MS', font_size)
 
 clear_canvas()
@@ -187,25 +187,25 @@ def display_text():
     text = "Lives: " + str(lives) + " | " + "Score: " + str(score)
     rendered_text = font.render(text, False, black)
     canvas.blit(rendered_text, font_cords)
-    pygame.display.update()
+    pg.display.update()
 
 def clear_text():
     rect = Rect(0, 0, canvas_width, margin)
-    pygame.draw.rect(canvas, background_color, rect)
+    pg.draw.rect(canvas, background_color, rect)
 
 canvas.fill(background_color)
-pygame.display.update()
+pg.display.update()
 
 circle_chance = 75
 rect_chance = 25
 
 while True:
-    for event in pygame.event.get():
+    for event in pg.event.get():
         if event.type == QUIT:
-            pygame.quit()
+            pg.quit()
             exit(0)
-    pressed_keys = pygame.key.get_pressed()
-    if pressed_keys[pygame.K_SPACE] or blink.value ==1:
+    pressed_keys = pg.key.get_pressed()
+    if pressed_keys[pg.K_SPACE] or blink.value ==1:
         blink.value=0
         reaction = True
     sleep(delay)
@@ -234,9 +234,9 @@ while True:
             if col == red:
                 red_cirle = True
             spawnCircleAtPos(pos, col)
-        pygame.display.update()
+        pg.display.update()
     if lives == 0:
-        pygame.quit()
+        pg.quit()
         exit(0)
 
 
