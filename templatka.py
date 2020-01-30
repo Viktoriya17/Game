@@ -38,7 +38,7 @@ def blinks_detector(quit_program, blink_det, blinks_num, blink,):
                 
                 
 ####################################################
-    SYMULACJA_SYGNALU = True
+    SYMULACJA_SYGNALU = False
 ####################################################
     mac_adress = 'd2:b4:11:81:48:ad'
 ####################################################
@@ -155,7 +155,7 @@ def clear_canvas():
 # program start
 
 clear_console()
-print("Instruction will be there")
+print("Mrugaj tylko jak zobaczyć czerwoną kropkę. Do wykorzystania masz 3 życia.")
 input("Press enter to start")
 
 # pygame initialization
@@ -206,8 +206,9 @@ while True:
             exit(0)
     pressed_keys = pg.key.get_pressed()
     if pressed_keys[pg.K_SPACE] or blink.value ==1:
-        blink.value=0
+        print('BLINK!')
         reaction = True
+        blink.value=0
     sleep(delay)
     time += 10
 
