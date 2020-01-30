@@ -158,15 +158,15 @@ clear_console()
 print("Mrugaj tylko jak zobaczyć czerwoną kropkę. Do wykorzystania masz 3 życia.")
 input("Press enter to start")
 
-# pygame initialization
+# pg initialization
 pg.init()
-canvas = pygame.display.set_mode(canvas_size)
+canvas = pg.display.set_mode(canvas_size)
 
 # text setup
 
 
 pg.font.init()
-font = pygame.font.SysFont('Comic Sans MS', font_size)
+font = pg.font.SysFont('Comic Sans MS', font_size)
 
 clear_canvas()
 
@@ -205,10 +205,10 @@ while True:
             pg.quit()
             exit(0)
     pressed_keys = pg.key.get_pressed()
-    if pressed_keys[pg.K_SPACE] or blink.value ==1:
+    if pressed_keys[pg.K_SPACE] or blink.value == 1:
         print('BLINK!')
         reaction = True
-        blink.value=0
+        blink.value = 0
     sleep(delay)
     time += 10
 
